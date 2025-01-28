@@ -1,6 +1,7 @@
 package com.example.recipemenu;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,24 +25,23 @@ public class Recipelistfragment extends Fragment {
         return fragment;
     }
 
-
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_r_ecipelistfragment, container, false);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         TabLayout tabLayout = view.findViewById(R.id.tb);
         ViewPager viewPager = view.findViewById(R.id.recipe_view_pager);
 
-        int cuisineIndex = getArguments().getInt(ARG_CUISINE_INDEX);
+        if(getArguments() != null) {
+            int cuisineIndex = getArguments().getInt(ARG_CUISINE_INDEX);
 
-        RecipePagerAdapter adapter = new RecipePagerAdapter(getContext(), cuisineIndex);
-        viewPager.setAdapter(adapter);
+            RecipePagerAdapter adapter = new RecipePagerAdapter(getContext(), cuisineIndex);
+            viewPager.setAdapter(adapter);
 
-        for (String recipeName : adapter.getRecipeNames(cuisineIndex)) {
-            tabLayout.addTab(tabLayout.newTab().setText(recipeName));
+            for (String recipeName : adapter.getRecipeNames(cuisineIndex)) {
+                tabLayout.addTab(tabLayout.newTab().setText(recipeName));
+            }
         }
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -57,6 +57,22 @@ public class Recipelistfragment extends Fragment {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
+        view.setOnKeyListener( new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey( View v, int keyCode, KeyEvent event )
+            {
+                return keyCode == KeyEvent.KEYCODE_BACK;
+            }
+        } );
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_r_ecipelistfragment, container, false);
 
 
 
