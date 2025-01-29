@@ -32,31 +32,26 @@ public class Cusinelistfragment extends Fragment {
                 // Open RecipeListFragment for selected cuisine
                 Fragment recipeFragment = Recipelistfragment.newInstance(position);
 
-                ((MainActivity) requireActivity()).loadFragment(recipeFragment,"f2",new Cusinelistfragment());
+                ((MainActivity) requireActivity()).loadFragment(recipeFragment);
             }
         });
 
-
         return view;
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.setOnKeyListener( new View.OnKeyListener()
-        {
+        view.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public boolean onKey( View v, int keyCode, KeyEvent event )
-            {
-                if( keyCode == KeyEvent.KEYCODE_BACK )
-                {
-                    return true;
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    return false;
                 }
                 return false;
             }
-        } );
+        });
     }
 }
 
