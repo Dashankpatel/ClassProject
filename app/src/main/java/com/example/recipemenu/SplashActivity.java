@@ -10,25 +10,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class LogoPage extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logo_page);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_splash);
 
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-
-                startActivity(new Intent(LogoPage.this, MainActivity.class));
-                finishAffinity();
-
-            }
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // Close Splash Screen
         }, 2000);
-
 
     }
 }

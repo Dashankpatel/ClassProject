@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -564,12 +566,20 @@ public class RecipePagerAdapter extends PagerAdapter {
         TextView dtl1 = view.findViewById(R.id.dtl1);
         TextView dtl2 = view.findViewById(R.id.dtl2);
 
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.zoom);
+        Animation animation2 = AnimationUtils.loadAnimation(context, R.anim.zoom);
         imageView.setImageResource(recipeImages[cuisineIndex][position]);
         textView.setText(recipeNames[cuisineIndex][position]);
+
+        imageView.startAnimation(animation);
+        textView.startAnimation(animation2);
+
         dtl1.setText(recipeingrediant[cuisineIndex][position]);
         dtl2.setText(recipeinstruction[cuisineIndex][position]);
 
         container.addView(view);
+
+
         return view;
     }
 
