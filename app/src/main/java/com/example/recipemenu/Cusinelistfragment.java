@@ -5,8 +5,11 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +26,11 @@ public class Cusinelistfragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cusinelistfragment, container, false);
 
         GridView gridView = view.findViewById(R.id.cuisine_grid);
+        TextView txt = view.findViewById(R.id.textView2);
+
+        Animation animati = AnimationUtils.loadAnimation(getContext(), R.anim.zoom);
+        txt.startAnimation(animati);
+
         CuisineAdapter adapter = new CuisineAdapter(getContext());
         gridView.setAdapter(adapter);
 
