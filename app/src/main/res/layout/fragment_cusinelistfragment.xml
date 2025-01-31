@@ -16,7 +16,6 @@
         android:textColor="@color/darkBrown"
         android:textSize="30sp" />
 
-
     <GridView
         android:id="@+id/cuisine_grid"
         android:layout_width="match_parent"

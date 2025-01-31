@@ -566,11 +566,12 @@ public class RecipePagerAdapter extends PagerAdapter {
         TextView dtl1 = view.findViewById(R.id.dtl1);
         TextView dtl2 = view.findViewById(R.id.dtl2);
 
+//        animation add karava
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.zoom);
         Animation animation2 = AnimationUtils.loadAnimation(context, R.anim.zoom);
         imageView.setImageResource(recipeImages[cuisineIndex][position]);
         textView.setText(recipeNames[cuisineIndex][position]);
-
+//        animation set karava
         imageView.startAnimation(animation);
         textView.startAnimation(animation2);
 

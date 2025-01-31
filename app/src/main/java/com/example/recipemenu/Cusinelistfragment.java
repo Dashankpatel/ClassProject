@@ -28,16 +28,19 @@ public class Cusinelistfragment extends Fragment {
         GridView gridView = view.findViewById(R.id.cuisine_grid);
         TextView txt = view.findViewById(R.id.textView2);
 
-        Animation animati = AnimationUtils.loadAnimation(getContext(), R.anim.zoom);
+//        animation view set karva mate
+        Animation animati = AnimationUtils.loadAnimation(getContext(), R.anim.blink);
         txt.startAnimation(animati);
 
+//        adapter set karva mate
         CuisineAdapter adapter = new CuisineAdapter(getContext());
         gridView.setAdapter(adapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Open RecipeListFragment for selected cuisine
+//                Open RecipeListFragment for selected cuisine
+//                gridview ma selected recipe fragment ni position ma java mate
                 Fragment recipeFragment = Recipelistfragment.newInstance(position);
 
                 ((MainActivity) requireActivity()).loadFragment(recipeFragment);

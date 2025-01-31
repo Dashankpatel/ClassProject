@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Load initial fragment
+//         Load initial fragment
+//         cusine fragment ma java mate
         if (savedInstanceState == null) {
             loadFragment(new Cusinelistfragment());
         }
@@ -42,12 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+//        recent fragment check karava mate
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main);
 
+//        cusine fragment ma hoy tyare back avva mate
         if (currentFragment instanceof Cusinelistfragment) {
             finish();
-        } else if (currentFragment instanceof Recipelistfragment) {
+        }
+//        recipe fragment ma hoy tyare back cusine fragment ma aavva mate
+        else if (currentFragment instanceof Recipelistfragment) {
             getSupportFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
