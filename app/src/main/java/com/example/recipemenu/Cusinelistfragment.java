@@ -29,7 +29,7 @@ public class Cusinelistfragment extends Fragment {
         TextView txt = view.findViewById(R.id.textView2);
 
 //        animation view set karva mate
-        Animation animati = AnimationUtils.loadAnimation(getContext(), R.anim.blink);
+        Animation animati = AnimationUtils.loadAnimation(getContext(), R.anim.zoom);
         txt.startAnimation(animati);
 
 //        adapter set karva mate

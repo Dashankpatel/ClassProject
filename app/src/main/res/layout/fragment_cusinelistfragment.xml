@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Cusine Types"
+        android:background="@color/darkBrown"
         android:textStyle="bold"
-        android:textColor="@color/darkBrown"
+        android:textColor="@color/lightBeige"
         android:textSize="30sp" />
 
     <GridView
